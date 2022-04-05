@@ -1,0 +1,45 @@
+<h2 class="text-center" style="margin: 10px">User registration</h2>
+<form [formGroup]="newUserForm" (ngSubmit)="editBooks()" class="col-md-6 offset-md-3">
+  <div class="form-group row">
+    <label class="col">
+      Tên sách
+      <input type="text" class="form-control" formControlName="title">
+    </label>
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="newUserForm.get('title').invalid && newUserForm.get('title').touched">
+    <span *ngIf="newUserForm.get('title').hasError('required') && newUserForm.get('title').touched">
+      Tên sách không được để trống!</span>
+  </div>
+  <div class="form-group row">
+    <label class="col">
+      Tác giả
+      <input type="text" class="form-control" formControlName="author">
+    </label>
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="newUserForm.get('author').invalid && newUserForm.get('author').touched">
+    <span *ngIf="newUserForm.get('author').hasError('required') && newUserForm.get('author').touched">
+      Tên tác giả không được để trống!</span>
+  </div>
+  <div class="form-group row">
+    <label class="col">
+      Mô tả
+      <textarea rows="5" type="text" class="form-control" formControlName="description"></textarea>
+    </label>
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="newUserForm.get('description').invalid && newUserForm.get('description').touched">
+    <span *ngIf="newUserForm.get('description').hasError('required') && newUserForm.get('description').touched">
+      Mô tả không được để trống!</span>
+  </div>
+  <div class="form-group" style="text-align: center" >
+    <button class="btn btn-info" type="submit" [disabled]="newUserForm.invalid">Cập nhật</button> &nbsp;
+    <button class="btn btn-danger" type="button" routerLink="">Thoát</button>
+  </div>
+</form>
+<div style="text-align: center" *ngIf="message">
+  <div>
+    <h2>{{message}}</h2>
+  </div>
+  <div class="alert alert-success">
+    Cuốn sách {{books.title}} vừa được cập nhật
+  </div>
+</div>

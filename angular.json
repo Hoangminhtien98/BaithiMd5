@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "BaithiMD5"
+    }
+  },
+  "defaultProject": "BaithiMD5",
+  "cli": {
+    "analytics": "236ca5ea-6715-4906-8a3a-9657f682f843"
+  }
 }
